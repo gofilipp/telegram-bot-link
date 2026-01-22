@@ -4,12 +4,25 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"tg-bot/clients/telegram"
+)
+
+const (
+	tgBotHost = "api.telegram.org"
 )
 
 func main() {
-	token := mustToket()
+	tgClient := telegram.New(mustHost(), mustToket())
 
-	fmt.Println(token)
+	fmt.Println(tgClient)
+}
+
+func mustHost() string {
+	host := flag.String("h", tgBotHost, "host for acces to tg bot")
+
+	flag.Parse()
+
+	return *host
 }
 
 func mustToket() string {
