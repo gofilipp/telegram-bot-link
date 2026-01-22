@@ -69,7 +69,7 @@ func (c *Client) SendMessage(id int, text string) error {
 
 func (c *Client) doRequest(method string, query url.Values) ([]byte, error) {
 	u := url.URL{
-		Scheme: "http",
+		Scheme: "https",
 		Host:   c.host,
 		Path:   path.Join(c.basePath, method),
 	}
